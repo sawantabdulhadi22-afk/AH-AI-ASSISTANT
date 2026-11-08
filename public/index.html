@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b16">
+
+  <title>AH-AI-ASSISTANT</title>
+
+  <meta name="description" content="AH-AI-ASSISTANT - Your personal AI assistant">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="brand">
+        <div class="brand-logo">AH</div>
+        <div>
+          <h2>AH-AI</h2>
+          <span>PERSONAL ASSISTANT</span>
+        </div>
+      </div>
+
+      <button class="new-chat" id="newChat">
+        <span>＋</span> New Conversation
+      </button>
+
+      <div class="sidebar-section">
+        <p class="section-title">SYSTEM</p>
+
+        <div class="side-item active">
+          <span>◈</span> AI Assistant
+        </div>
+
+        <div class="side-item">
+          <span>◉</span> Voice Interface
+        </div>
+
+        <div class="side-item">
+          <span>⌘</span> AI Tools
+        </div>
+
+        <div class="side-item">
+          <span>⚙</span> Settings
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="connection">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="connectionText">Checking system...</span>
+        </div>
+        <p>AH-AI-ASSISTANT v1.0</p>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <div class="topbar-title">
+          <span class="online-indicator"></span>
+          <span>AH-AI-ASSISTANT</span>
+        </div>
+
+        <button class="profile-btn">AH</button>
+
+      </header>
+
+      <section class="workspace">
+
+        <div class="welcome" id="welcome">
+
+          <div class="core-container">
+            <div class="core-ring ring-one"></div>
+            <div class="core-ring ring-two"></div>
+            <div class="core-ring ring-three"></div>
+
+            <div class="core">
+              <span>AH</span>
+            </div>
+          </div>
+
+          <p class="welcome-label">PERSONAL AI SYSTEM</p>
+
+          <h1>Welcome back.</h1>
+
+          <p class="welcome-description">
+            I am AH-AI-ASSISTANT.
+            How can I help you today?
+          </p>
+
+          <div class="suggestions">
+
+            <button class="suggestion" data-prompt="Tell me about yourself">
+              <span>✦</span>
+              Introduce yourself
+            </button>
+
+            <button class="suggestion" data-prompt="Help me with my studies">
+              <span>▤</span>
+              Help with studies
+            </button>
+
+            <button class="suggestion" data-prompt="Help me write some code">
+              <span>⌘</span>
+              Write code
+            </button>
+
+            <button class="suggestion" data-prompt="Give me today's productivity plan">
+              <span>◷</span>
+              Plan my day
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="composer-area">
+
+          <form class="composer" id="chatForm">
+
+            <textarea
+              id="messageInput"
+              placeholder="Ask AH-AI-ASSISTANT anything..."
+              rows="1"
+              autocomplete="off"
+            ></textarea>
+
+            <div class="composer-actions">
+
+              <span class="input-hint">AI-powered assistant</span>
+
+              <div class="action-buttons">
+
+                <button
+                  type="button"
+                  class="icon-btn"
+                  id="voiceBtn"
+                  title="Voice input"
+                >🎙</button>
+
+                <button
+                  type="submit"
+                  class="send-btn"
+                  id="sendBtn"
+                  title="Send message"
+                >➤</button>
+
+              </div>
+
+            </div>
+
+          </form>
+
+          <p class="disclaimer">
+            AH-AI-ASSISTANT can make mistakes. Verify important information.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="/app.js"></script>
+
+</body>
+</html>
