@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AH-AI-ASSISTANT | Membership</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #080d18;
+      color: #f5f7ff;
+      font-family: Arial, sans-serif;
+      padding: 35px 18px;
+    }
+
+    .container { max-width: 1150px; margin: auto; }
+
+    header { text-align: center; margin-bottom: 38px; }
+
+    .logo {
+      color: #54d9ff;
+      font-size: 14px;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    h1 { font-size: clamp(30px, 5vw, 48px); margin-bottom: 12px; }
+
+    .subtitle { color: #aab5ca; line-height: 1.6; }
+
+    .billing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 25px 0 35px;
+      color: #cbd5e1;
+    }
+
+    .billing button {
+      background: #18253b;
+      border: 1px solid #33445e;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .billing button.active {
+      background: #087eaa;
+      border-color: #54d9ff;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .plan {
+      background: linear-gradient(145deg, #142238, #0c1424);
+      border: 1px solid #263b58;
+      border-radius: 18px;
+      padding: 25px 21px;
+      display: flex;
+      flex-direction: column;
+      min-height: 440px;
+    }
+
+    .plan.pro {
+      border: 2px solid #20c9ff;
+      box-shadow: 0 0 28px #20c9ff20;
+    }
+
+    .tag {
+      color: #54d9ff;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    h2 { font-size: 23px; margin-bottom: 12px; }
+
+    .price {
+      font-size: 34px;
+      font-weight: bold;
+      margin: 10px 0 4px;
+    }
+
+    .period { color: #9eabc0; font-size: 13px; }
+
+    .description {
+      color: #aab5ca;
+      font-size: 13px;
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+
+    ul {
+      list-style: none;
+      margin: 12px 0 25px;
+      flex: 1;
+    }
+
+    li {
+      color: #d5deed;
+      font-size: 13px;
+      margin: 13px 0;
+    }
+
+    li::before {
+      content: "✓";
+      color: #43d9ff;
+      margin-right: 9px;
+    }
+
+    .choose {
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 10px;
+      background: #193b59;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .pro .choose {
+      background: linear-gradient(90deg, #0789bd, #16b9d9);
+      color: #06121c;
+    }
+
+    .choose:hover { filter: brightness(1.2); }
+
+    .note {
+      text-align: center;
+      color: #8291a9;
+      font-size: 12px;
+      margin-top: 30px;
+      line-height: 1.7;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #54d9ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <div class="logo">AH-AI-ASSISTANT</div>
+      <h1>Choose Your Membership</h1>
+      <p class="subtitle">
+        Upgrade your intelligence. Unlock more possibilities.<br>
+        Choose the plan that works for you.
+      </p>
+    </header>
+
+    <div class="billing">
+      <button id="monthly" class="active" onclick="setBilling('monthly')">
+        Monthly
+      </button>
+      <button id="yearly" onclick="setBilling('yearly')">
+        Yearly
+      </button>
+    </div>
+
+    <section class="plans">
+
+      <article class="plan">
+        <div class="tag">STARTER</div>
+        <h2>Free</h2>
+        <div class="price">₹0</div>
+        <div class="period">Forever</div>
+        <p class="description">Explore your personal AI assistant.</p>
+        <ul>
+          <li>Basic AI chat</li>
+          <li>Limited daily web searches</li>
+          <li>Basic voice assistant</li>
+          <li>Basic conversation history</li>
+        </ul>
+        <button class="choose" onclick="choosePlan('Free')">
+          Get Started
+        </button>
+      </article>
+
+      <article class="plan">
+        <div class="tag">ESSENTIAL</div>
+        <h2>Basic</h2>
+        <div class="price" id="basicPrice">₹99</div>
+        <div class="period" id="basicPeriod">per month</div>
+        <p class="description">More features for everyday use.</p>
+        <ul>
+          <li>More AI messages</li>
+          <li>Voice conversations</li>
+          <li>More web searches</li>
+          <li>Conversation history</li>
+          <li>Study assistance</li>
+        </ul>
+        <button class="choose" onclick="choosePlan('Basic')">
+          Choose Basic
+        </button>
+      </article>
+
+      <article class="plan pro">
+        <div class="tag">MOST POPULAR</div>
+        <h2>Pro</h2>
+        <div class="price" id="proPrice">₹249</div>
+        <div class="period" id="proPeriod">per month</div>
+        <p class="description">Advanced AI for more demanding tasks.</p>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Higher AI usage limits</li>
+          <li>Advanced web research</li>
+          <li>Document assistance</li>
+          <li>Personal memory</li>
+          <li>Priority response handling</li>
+        </ul>
+        <button class="choose" onclick="choosePlan('Pro')">
+          Choose Pro
+        </button>
+      </article>
+
+      <article class="plan">
+        <div class="tag">POWER USER</div>
+        <h2>Ultra</h2>
+        <div class="price" id="ultraPrice">₹499</div>
+        <div class="period" id="ultraPeriod">per month</div>
+        <p class="description">For users who want the full experience.</p>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Highest usage limits</li>
+          <li>Advanced voice features</li>
+          <li>Desktop assistant tools</li>
+          <li>Advanced research</li>
+          <li>More personalization</li>
+        </ul>
+        <button class="choose" onclick="choosePlan('Ultra')">
+          Choose Ultra
+        </button>
+      </article>
+
+      <article class="plan">
+        <div class="tag">ONE-TIME PAYMENT</div>
+        <h2>Lifetime</h2>
+        <div class="price">₹2,999</div>
+        <div class="period">One-time payment</div>
+        <p class="description">A one-time purchase for long-term access.</p>
+        <ul>
+          <li>Pro-level features</li>
+          <li>Lifetime account access</li>
+          <li>Fair-use limits</li>
+          <li>Eligible future updates</li>
+        </ul>
+        <button class="choose" onclick="choosePlan('Lifetime')">
+          Choose Lifetime
+        </button>
+      </article>
+
+    </section>
+
+    <p class="note">
+      Prices are proposed launch prices in INR.<br>
+      Actual features and usage limits depend on the final service setup.
+      Payments are not connected yet.
+    </p>
+
+    <a class="back" href="/">← Back to AH-AI-ASSISTANT</a>
+  </main>
+
+  <script>
+    let billing = "monthly";
+
+    function setBilling(type) {
+      billing = type;
+
+      document.getElementById("monthly").classList.toggle(
+        "active", type === "monthly"
+      );
+
+      document.getElementById("yearly").classList.toggle(
+        "active", type === "yearly"
+      );
+
+      const prices = type === "monthly"
+        ? { basic: "₹99", pro: "₹249", ultra: "₹499" }
+        : { basic: "₹999", pro: "₹2,499", ultra: "₹4,999" };
+
+      document.getElementById("basicPrice").textContent = prices.basic;
+      document.getElementById("proPrice").textContent = prices.pro;
+      document.getElementById("ultraPrice").textContent = prices.ultra;
+
+      ["basic", "pro", "ultra"].forEach(plan => {
+        document.getElementById(plan + "Period").textContent =
+          type === "monthly" ? "per month" : "per year";
+      });
+    }
+
+    function choosePlan(plan) {
+      alert(
+        plan === "Free"
+          ? "Free membership selected. Account registration will be connected next."
+          : plan + " membership selected. Payment checkout will be connected next."
+      );
+    }
+  </script>
+</body>
+</html>
